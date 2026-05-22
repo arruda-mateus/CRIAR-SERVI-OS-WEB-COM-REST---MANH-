@@ -1,0 +1,155 @@
+* { box-sizing: border-box; }
+
+:root {
+  --azul-escuro: #071d3a;
+  --azul: #15578d;
+  --azul-claro: #e8f2fb;
+  --fundo: #eef4f8;
+  --texto-suave: #526274;
+  --branco: #fff;
+  --borda: #d6e1ea;
+  --verde: #1e8e5a;
+  --vermelho: #c83030;
+  --amarelo: #fff5d6;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--azul-escuro);
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+ul { line-height: 1.8; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 7%;
+  background: var(--branco);
+  border-bottom: 1px solid var(--borda);
+}
+
+.brand, .nav-links, .compact, .status-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand { font-weight: 800; letter-spacing: .5px; }
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: white;
+}
+
+.nav-links { flex-wrap: wrap; }
+.nav-links a { color: var(--texto-suave); font-weight: 700; }
+.nav-links a.active { color: var(--azul); }
+
+.container { width: min(1180px, 92%); margin: 32px auto; }
+.footer { text-align: center; color: var(--texto-suave); padding: 32px; }
+
+.hero, .grid, .form, .card-list { display: grid; gap: 20px; }
+.two-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.three-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dashboard-grid { align-items: start; }
+
+.hero-content, .auth-card, .panel, .card {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  box-shadow: 0 14px 30px rgba(7, 29, 58, .06);
+}
+
+.hero-content { padding: 56px; }
+.auth-card { width: min(760px, 100%); margin: 0 auto; padding: 34px; }
+.auth-card.wide { width: min(980px, 100%); }
+.card, .panel { padding: 24px; }
+.warning-panel { background: var(--amarelo); }
+
+.hero h1, .auth-card h1, .page-heading h1 {
+  margin: 10px 0 18px;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1;
+}
+
+.hero p, .page-heading p, .auth-card p, .muted {
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.tag, .badge {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--azul-claro);
+  color: var(--azul);
+  font-weight: 800;
+}
+
+.hero-actions, .status-actions { flex-wrap: wrap; margin-top: 18px; }
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 22px;
+  background: var(--azul);
+  color: white;
+  font-weight: 800;
+  transition: transform .2s, opacity .2s;
+}
+.button:hover { transform: translateY(-1px); }
+.button:disabled { opacity: .7; cursor: not-allowed; }
+.button-outline { background: transparent; color: var(--azul); border: 1px solid var(--azul); }
+.button-small { padding: 10px 14px; border-radius: 12px; font-size: .9rem; }
+.full { width: 100%; }
+
+.form.two-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+label { display: grid; gap: 7px; font-weight: 800; }
+input, select, textarea {
+  width: 100%;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 14px;
+  background: white;
+  color: var(--azul-escuro);
+}
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 3px solid rgba(21, 87, 141, .2);
+}
+.span-two { grid-column: span 2; }
+
+.alert { padding: 14px; border-radius: 14px; font-weight: 700; }
+.error { background: #ffe2e2; color: var(--vermelho); }
+.success { background: #e0f7ea; color: var(--verde); }
+.info { background: var(--azul-claro); color: var(--azul); }
+.auth-footer { text-align: center; }
+.auth-footer a { color: var(--azul); font-weight: 800; }
+.page-heading { margin-bottom: 24px; }
+.card h3, .panel h2 { margin-top: 0; }
+.compact { justify-content: space-between; }
+
+@media (max-width: 760px) {
+  .topbar, .compact { align-items: flex-start; flex-direction: column; }
+  .hero-content { padding: 32px; }
+  .two-columns, .three-columns, .form.two-columns { grid-template-columns: 1fr; }
+  .span-two { grid-column: span 1; }
+}
