@@ -2,9 +2,10 @@
 
 ## Integrantes do grupo
 
-- Renato Cardoso Eliete Franca
-- Integrante 2
-- Integrante 3
+- Renan Demétrio
+- Mateus Arruda
+- Luiz Felipe Guimarães
+- Samuel de Sousa Pedrosa
 
 ## Descrição da ideia do sistema
 
